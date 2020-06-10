@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main-block">
+      <div class="jumbotron top-block">
+        <p>Lorem ipsum dolor sit amet </p>
+        <p>Lorem ipsum dolor sit amet </p>
+        <p>Lorem ipsum dolor sit amet </p>
+        <p>Lorem ipsum dolor sit amet </p>
+        <p>Lorem ipsum dolor sit amet </p>
+      </div>
+      <div class="center-block">
+        <form>
+          <button type="button" class="btn btn-warning" onclick="editBtn()">edit</button>
+          <button type="button" class="btn btn-info" onclick="styleBtn()">style</button>
+        </form>
+      </div>
+      <div class="jumbotron bottom-block">
+        <div class="edit-block hidden">
+          <form>
+            <textarea class="area form-control" rows="7"></textarea>
+            <button type="button" class="addBtn btn btn-danger sans-serif" onclick="addBtn()">add</button>
+            <button type="button" class="saveBtn btn btn-success " onclick="saveBtn()">save</button>
+          </form>
+        </div>
+        <div class="style-block hidden text-body">
+          <div class="style-parameters">
+            <form name="formSize">
+              <h6 class="font-weight-bold mb-3">Font Size:</h6>
+              <div class="form-check form-check-inline">
+                <input onclick="fontSize()" class="form-check-input" type="radio" value="12px" name="size">
+                <label class="form-check-label" for="inlineRadio1">12px</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input onclick="fontSize()" class="form-check-input" type="radio" value="14px" name="size">
+                <label class="form-check-label" for="inlineRadio2">14px</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input onclick="fontSize()" class="form-check-input" type="radio" value="16px" name="size" checked>
+                <label class="form-check-label" for="inlineRadio3">16px</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input onclick="fontSize()" class="form-check-input" type="radio" value="18px" name="size">
+                <label class="form-check-label" for="inlineRadio4">18px</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input onclick="fontSize()" class="form-check-input" type="radio" value="20px" name="size">
+                <label class="form-check-label" for="inlineRadio5">20px</label>
+              </div>
+            </form>
+            <form name="formFamily">
+              <h6 class="font-weight-bold mb-3">Font Family:</h6>
+              <select class="custom-select" onchange="fontFamily()">
+                <option selected>Choose option</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="fantasy">fantazy</option>
+                <option value="monospace">monospace</option>
+                <option value="sans-serif">sans-serif</option>
+              </select>
+            </form>
+            <form name="formColors">
+              <h6 class="font-weight-bold mb-3">Colors:</h6>
+              <label for="colorText">
+                <input type="button" class="btn btn-secondary" value="Color of text" onclick="colorsText()">
+              </label>
+              <label for="colorBackground">
+                <input type="button" class="btn btn-secondary" value="Background color" onclick="colorsBackground()">
+              </label>
+            </form>
+            <form name="formStyle">
+              <h6 class="font-weight-bold mb-3">Style:</h6>
+              <div class="textBold form-check-inline">
+                <input type="checkbox" onclick="fontWeight()">Bold text
+              </div>
+              <div class="textCursive form-check-inline">
+                <input type="checkbox" onclick="fontStyle()">Cursive text
+              </div>
+            </form>
+          </div>
+          <div class="box-color">
+            <div class="containerColor">
+              <div class="boxMini black"></div>
+              <div class="boxMini darkred"></div>
+              <div class="boxMini white"></div>
+              <div class="boxMini yellow"></div>
+              <div class="boxMini grey"></div>
+              <div class="boxMini red"></div>
+              <div class="boxMini blue"></div>
+              <div class="boxMini pink"></div>
+              <div class="boxMini green"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="add-block jumbotron hidden">
+      <form name="formChoose">
+        <h5 class="font-weight-bold"> Choose what you want: <input type="button" class="btn btn-secondary sans-serif" value="back"
+            onclick="backBtn()"></h5>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="radio" data-create="table" name="choose" onclick="chooseBtn()">
+          <label class="form-check-label font-weight-light" for="inlineRadio9">table</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="radio" data-create="list" name="choose" onclick="chooseBtn()">
+          <label class="form-check-label font-weight-light" for="inlineRadio10">list</label>
+        </div>
+      </form>
+      <form name="formCreateTable" class="formCreateTable hidden">
+        <div class="form-group row">
+          <label for="countTr" class="col-sm-3 row-form-label">Count TR:</label>
+          <div class="col-sm-9">
+            <input class="form-control form-control-sm trCount" type="text" placeholder="Count TR" id="countTr"
+              name="countTr">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="countTd" class="col-sm-3 row-form-label">Count TD:</label>
+          <div class="col-sm-9">
+            <input class="form-control form-control-sm trCount" type="text" id="countTd" name="countTd"
+              placeholder="Count TD">
+          </div>
+        </div>
+        <h6 class="font-weight-bold mb-3">Add style to your table:</h6>
+        <div class="form-group row">
+          <label for=" widthTd" class="col-sm-3 row-form-label">Width of Td:</label>
+          <div class="col-sm-9">
+            <input class="form-control form-control-sm trCount" type="text" id="widthTd" name="widthTd"
+              placeholder="Width of Td:">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="heightTd" class="col-sm-3 row-form-label">Height of Td:</label>
+          <div class="col-sm-9">
+            <input class="form-control form-control-sm trCount" type="text" id="heightTd" name="heightTd"
+              placeholder="Height of Td:">
+          </div>
+        </div>
+          <div class="form-group row">
+            <label for="widthBorder" class="col-sm-3 row-form-label">Width of border:</label>
+            <div class="col-sm-9">
+              <input class="form-control form-control-sm" type="text" id="widthBorder" name="widthBorder" placeholder="Width:">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="typeBorder" class="col-sm-3 row-form-label">Type of border:</label>
+            <div class="col-sm-9">
+              <select id="exampleFormControlSelect1" class="form-control-sm col-sm-12" name="typeBorder">
+                <option value="solid" selected>solid</option>
+                <option value="double">double</option>
+                <option value="dotted">dotted</option>
+                <option value="dashed">dashed</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row ">
+            <label for="colorBorder" class="col-sm-3 row-form-label">Color of border:</label>
+            <div class="col-sm-9">
+              <select class="form-control-sm col-sm-12" id="exampleFormControlSelect1" name="colorBorder"">
+                <option value=" black" selected>black</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+              </select>
+            </div>
+          </div>
+        <input type="button" value="Create table" class="btn btn-success sans-serif" onclick="createTable()">
+      </form>
+      <form name="formCreateList" class="formCreateList hidden">
+        <div class="form-group row">
+          <label for="countLi" class="col-sm-2 row-form-label">Count li:</label>
+          <div class="col-sm-10">
+            <input class="form-control form-control-sm trCount" type="text" id="countLi" name="countLi"
+              placeholder="Count li:">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="typeMarks" class="col-sm-2 row-form-label">Type of marks:</label>
+          <div class="col-sm-10">
+            <select class="form-control-sm col-sm-12" id="exampleFormControlSelect1" name="typeMarks">
+              <option value=" circle" selected>circle</option>
+              <option value="disk">disk</option>
+              <option value="square">square</option>
+            </select>
+          </div>
+        </div>
+        <input type="button" value="Create list" class="btn btn-success sans-serif" onclick="createList()">
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
